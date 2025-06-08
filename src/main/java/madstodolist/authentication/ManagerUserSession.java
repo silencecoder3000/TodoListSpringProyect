@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpSession;
 
 @Component
-public class ManagerUserSession {
+public class  ManagerUserSession {
 
     @Autowired
     HttpSession session;
