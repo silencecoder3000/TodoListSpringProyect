@@ -15,12 +15,14 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-
+    @Autowired
+    private ManagerUserSession managerUserSession;
 
     @GetMapping("/registrados")
     public String listaUsuarios(Model model) {
-
+        Long idUsuarioLogeado = managerUserSession.usuarioLogeado();
         List<Usuario> usuarios = usuarioService.findAllUsers();
+        model.addAttribute("idUsuarioLogeado", idUsuarioLogeado);
         model.addAttribute("usuarios", usuarios);
         return "registrados";
     }
