@@ -13,4 +13,61 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </div>
 
+
+
+
+
+
+
+<div th:fragment="menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/about}">ToDoList</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" th:if="${idUsuarioLogeado != null}">
+                    <a class="nav-link" th:href="@{/usuarios/{id}/tareas(id=${idUsuarioLogeado})}">Tareas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <!-- Menú desplegable para usuarios logueados -->
+                <li class="nav-item dropdown" th:if="${idUsuarioLogeado != null}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown"  aria-expanded="false">
+                        <span th:text="${nombreUsuario}">Usuario</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <ul>
+                            <li style="list-style: none"><a class="dropdown-item" th:href="@{/account}">Cuenta</a></li>
+                            <li style="list-style: none"><a class="dropdown-item" th:href="@{/login}">Cerrar sesión</a></li>
+                        </ul>
+                        <!--
+                        <a class="dropdown-item" th:href="@{/account}">Cuenta</a>
+                        Cerrar sesión
+                        </a>
+                        -->
+                    </div>
+                </li>
+                <!-- Mostrar "Login" y "Registro" solo si el usuario no está logueado -->
+                <li class="nav-item" th:if="${idUsuarioLogeado == null}">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item" th:if="${idUsuarioLogeado == null}">
+                    <a class="nav-link" th:href="@{/registro}">Registro</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
 </html>

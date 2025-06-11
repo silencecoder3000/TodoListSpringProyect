@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class TareaController {
+public class  TareaController {
 
     @Autowired
     UsuarioService usuarioService;
@@ -67,6 +67,8 @@ public class TareaController {
         List<TareaData> tareas = tareaService.allTareasUsuario(idUsuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("tareas", tareas);
+        model.addAttribute("idUsuarioLogeado", managerUserSession.usuarioLogeado());
+        model.addAttribute("nombreUsuario", usuario.getNombre());
         return "listaTareas";
     }
 
