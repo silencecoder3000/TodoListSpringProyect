@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Descripción del Usuario</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Descripción del Usuario</h2>
+  <ul>
+    <li><strong>ID:</strong> <span th:text="${usuario.id}"></span></li>
+    <li><strong>Email:</strong> <span th:text="${usuario.email}"></span></li>
+    <li><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></li>
+    <li><strong>Fecha de Nacimiento:</strong> <span th:text="${usuario.fechaNacimiento}"></span></li>
+  </ul>
+  <a class="btn btn-primary" th:href="@{/registrados}">Volver a la Lista de Usuarios</a>
+</div>
+</body>
+</html>
